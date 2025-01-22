@@ -1,0 +1,70 @@
+@import url(navbar.css);
+
+/* Estilo para o corpo */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url("../Imagens/Trabalho.jpg") no-repeat center top;
+  background-size: 1950px 750px;
+}
+
+/* Adiciona altura ao conteúdo */
+main {
+  min-height: 200vh; /* Permite rolar a página */
+  padding: 2rem;
+}
+
+/* Estilo para o rodapé */
+footer {
+  background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+  text-align: center;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.horario-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.horario-item {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px 20px;
+  border: solid 1px black;
+}
+
+.activity {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .horario-item b {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 25px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .horario-container {
+    grid-template-columns: repeat(7, auto);
+  }
+  .horario-item {
+    font-size: 12px;
+  }
+  .horario-item b {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 15px;
+    font-size: 12px;
+  }
+}

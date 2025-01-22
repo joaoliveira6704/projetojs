@@ -1,0 +1,75 @@
+@import url(navbar.css);
+
+/* Estilo para o corpo */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url("../Imagens/Capa esmad.png") no-repeat center top;
+  background-size: cover;
+}
+
+/* Estilo para o retângulo branco */
+.retangulo {
+  width: 80%; /* Largura do retângulo em relação ao viewport */
+  max-width: 350px; /* Largura máxima */
+  height: 520px; /* Altura do retângulo */
+  background-color: #fff; /* Fundo branco */
+  margin: 350px auto; /* Centraliza horizontalmente e aumenta o espaço acima */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra */
+  padding: 1rem; /* Adiciona espaço interno */
+}
+
+.retangulo span {
+  font-size: 5rem; /* Tamanho do texto */
+  font-weight: bold; /* Texto em negrito */
+  color: #333; /* Cor do texto */
+  display: flex; /* Ativa flexbox no texto */
+  flex-direction: column; /* Organiza as palavras verticalmente */
+  justify-content: space-between; /* Distribui o texto igualmente dentro do retângulo */
+  line-height: 1; /* Remove espaçamento extra entre linhas */
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo para a seção com fundo branco */
+.cursos {
+  background-color: #ffffff; /* Fundo branco */
+  color: #333333; /* Cor do texto */
+  padding: 10rem 10rem; /* Espaçamento interno */
+  text-align: center; /* Centraliza o texto */
+}
+
+.cursos h1 {
+  font-size: 3rem; /* Tamanho do título */
+  margin-bottom: 2rem; /* Espaço abaixo do título */
+  color: #000000; /* Cor do título */
+}
+
+.cursos .conteudo {
+  max-width: 800px; /* Limita a largura do texto */
+  margin: 0 auto; /* Centraliza o texto horizontalmente */
+  text-align: left; /* Alinha o texto à esquerda */
+  line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+.cursos p {
+  margin-bottom: 1.5rem; /* Espaço entre os parágrafos */
+}
+
+/* Adiciona altura ao conteúdo */
+main {
+  min-height: 200vh; /* Permite rolar a página */
+  padding: 2rem;
+}
+
+/* Estilo para o rodapé */
+footer {
+  background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+  text-align: center;
+  color: #fff;
+  padding: 1rem 0;
+}
