@@ -9,15 +9,15 @@ function showTab(tabId) {
 }
 
 function sendAlert(day) {
-  // Get the class schedule for the day
+  // Recebe o horário para o dia
   let schedule = getMessage(day);
 
-  // Show the alert with the day and schedule
+  // Mostra a alerta
   alert("Dia: " + day + "\n" + schedule);
 }
 
 function getMessage(day) {
-  // Define the schedule for each day
+  // Definir horário para cada dia
   switch (day) {
     case "Segunda-Feira": // Segunda-feira
       return "\nAulas:\n11:30 - 13:00: Matemática I\n14:00 - 16:00: Algoritmia e Estrutura de Dados\n16:00 - 18:00: Tecnologias Web";
@@ -55,7 +55,7 @@ if (form) {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Obtém dinamicamente as disciplinas e notas
+    // Obtém de forma dinâmica as disciplinas e notas
     let disciplinas = [];
     let notas = [];
 
@@ -175,7 +175,7 @@ const disciplinas = {
   },
 };
 
-// Atualiza os nomes das disciplinas conforme o ano e semestre selecionado
+// Atualiza os nomes das disciplinas conforme o ano e semestre selecionados
 function atualizarDisciplinas() {
   const anoSelecionado = document.getElementById("ano").value;
   const semestreSelecionado = document.getElementById("semestre").value;
@@ -197,5 +197,5 @@ document
   .getElementById("semestre")
   .addEventListener("change", atualizarDisciplinas);
 
-// Inicializar os valores das disciplinas na primeira carga
+// Inicializar os valores das disciplinas
 atualizarDisciplinas();
