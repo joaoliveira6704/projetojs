@@ -1,6 +1,20 @@
+/* Garante que o conteúdo ocupe toda a altura da tela */
+html,
 body {
+  height: 100%;
   margin: 0;
-  padding-bottom: 80px; /* Make space for the footer */
+}
+
+/* Usando Flexbox para garantir que o footer fique no final */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Faz o footer ficar sempre no final da página */
+footer {
+  margin-top: auto; /* Empurra o footer para o final da tela */
 }
 
 .h2 {
@@ -63,17 +77,6 @@ body {
 .tab-buttons button {
   margin: 0 10px;
   background-color: rgb(75, 75, 75);
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #000;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
 }
 
 @media only screen and (max-width: 800px) {
