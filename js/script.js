@@ -16,6 +16,80 @@ function sendAlert(day) {
   alert("Dia: " + day + "\n" + schedule);
 }
 
+function changeSchedule() {
+  let ano = document.getElementById("ano").value;
+  let semestre = document.getElementById("semestre").value;
+
+  // Atualiza a função sendAlert com o ano e semestre selecionados
+  function sendAlert(day) {
+    // Obtenha a agenda com base no ano, semestre e dia
+    let schedule = getMessage(ano, semestre, day);
+
+    // Exibe o alerta com o dia e horário
+    alert("Dia: " + day + "\n" + schedule);
+  }
+
+  function getMessage(ano, semestre, day) {
+    // Defina a agenda para cada ano, semestre e dia
+    let schedule = {
+      1: {
+        // 1º Ano
+        1: {
+          "Segunda-Feira":
+            "\nAulas: 11:30 - 13:00: Matemática I\n14:00 - 16:00: Algoritmia",
+          "Terça-Feira":
+            "\nAulas: 14:00 - 15:30: Matemática I\n17:00 - 19:00: Fundamentos de Design",
+          // Adicione outros dias
+        },
+        2: {
+          "Segunda-Feira":
+            "\nAulas: 13:00 - 15:00: Algoritmia I\n16:00 - 18:00: Web",
+          "Terça-Feira":
+            "\nAulas: 15:30 - 17:30: Física\n19:00 - 21:00: Fundamentos de Design",
+          // Adicione outros dias
+        },
+      },
+      2: {
+        // 2º Ano
+        1: {
+          "Segunda-Feira":
+            "\nAulas: 9:00 - 11:00: Sistemas Operacionais\n14:00 - 16:00: Banco de Dados",
+          // Adicione outros dias
+        },
+        2: {
+          "Segunda-Feira":
+            "\nAulas: 10:00 - 12:00: Redes de Computadores\n13:00 - 15:00: Web",
+          // Adicione outros dias
+        },
+      },
+      3: {
+        // 3º Ano
+        1: {
+          "Segunda-Feira":
+            "\nAulas: 11:00 - 13:00: Inteligência Artificial\n15:00 - 17:00: Segurança",
+          // Adicione outros dias
+        },
+        2: {
+          "Segunda-Feira":
+            "\nAulas: 9:00 - 11:00: Computação Gráfica\n14:00 - 16:00: Computação em Nuvem",
+          // Adicione outros dias
+        },
+      },
+    };
+
+    // Verifica se o dia, ano e semestre existem
+    if (
+      schedule[ano] &&
+      schedule[ano][semestre] &&
+      schedule[ano][semestre][day]
+    ) {
+      return schedule[ano][semestre][day];
+    }
+
+    return "\nDia Inválido! Não há atividades programadas para o dia selecionado.";
+  }
+}
+
 function getMessage(day) {
   // Define the schedule for each day
   switch (day) {
