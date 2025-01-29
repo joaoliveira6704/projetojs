@@ -9,86 +9,116 @@ function showTab(tabId) {
 }
 
 function sendAlert(day) {
+  const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
+
   // Recebe o horário para o dia
   let schedule = getMessage(day);
 
-  // Mostra a alerta
-  alert("Dia: " + day + "\n" + schedule);
+  // Abre o modal
+  modal.show();
+
+  // Mostra a alertaS
+  //alert("Dia: " + day + "\n" + schedule);
+  document.querySelectorAll(".modal-body").forEach((element) => {
+    element.innerHTML = "Dia: " + day + "<br>" + schedule
+  });
 }
 
 function getMessage(day) {
   // Definir horário para cada dia
   switch (day) {
     case "Segunda-Feira": // Segunda-feira
-      return "\nAulas:\n11:30 - 13:00: Matemática I\n14:00 - 16:00: Algoritmia e Estrutura de Dados\n16:00 - 18:00: Tecnologias Web";
+      return "<br>Aulas:<br>11:30 - 13:00: Matemática I<br>14:00 - 16:00: Algoritmia e Estrutura de Dados<br>16:00 - 18:00: Tecnologias Web";
     case "Terça-Feira": // Terça-feira
-      return "\nAulas:\n14:00 - 15:30: Matemática I\n17:00 - 19:00: Fundamentos de Design";
+      return "<br>Aulas:<br>14:00 - 15:30: Matemática I<br>17:00 - 19:00: Fundamentos de Design";
     case "Quarta-Feira": // Quarta-feira
-      return "\nAulas:\n9:00 - 11:00: Tecnologias Web\n11:00 - 13:00: Fundamentos de Design";
+      return "<br>Aulas:<br>9:00 - 11:00: Tecnologias Web<br>11:00 - 13:00: Fundamentos de Design";
     case "Quinta-Feira": // Quinta-feira
-      return "\nAulas:\n10:00 - 13:00: Algoritmia e Estrutura de Dados\n14:00 - 17:00: Sistemas Computacionais";
+      return "<br>Aulas:<br>10:00 - 13:00: Algoritmia e Estrutura de Dados<br>14:00 - 17:00: Sistemas Computacionais";
     case 1:
-      return "\nTeste:\n16:00 - 18:00: Tecnologias Web";
+      return "<br>Teste:<br>16:00 - 18:00: Tecnologias Web";
     case 11:
-      return "\nTeste:\n14:00 - 17:00: Sistemas Computacionais";
+      return "<br>Teste:<br>14:00 - 17:00: Sistemas Computacionais";
     case 15:
-      return "\nAtividade de Progresso:\n14:00 - 16:00: Algoritmia e Estrutura de Dados";
+      return "<br>Atividade de Progresso:<br>14:00 - 16:00: Algoritmia e Estrutura de Dados";
     case 17:
-      return "\nApresentação: 11:00 - 13:00: Fundamentos de Design";
+      return "<br>Apresentação: 11:00 - 13:00: Fundamentos de Design";
     case 22:
-      return "\nTeste:\n10:00 - 12:30: Matemática I";
+      return "<br>Teste:<br>10:00 - 12:30: Matemática I";
     case 26:
-      return "\nApresentação:\n13:30 - 17:00: Algoritmia e Estrutura de Dados";
+      return "<br>Apresentação:<br>13:30 - 17:00: Algoritmia e Estrutura de Dados";
     case 29:
-      return "\nEntrega de Projeto:\n10:00: Tecnologias Web";
+      return "<br>Entrega de Projeto:<br>10:00: Tecnologias Web";
     case 31:
-      return "\nApresentação:\n11:00 - 13:00: Sistemas Computacionais";
+      return "<br>Apresentação:<br>11:00 - 13:00: Sistemas Computacionais";
     default:
-      return "\nDia Inválido! Não há atividades programadas para o dia selecionado.";
+      return "<br>Dia Inválido! Não há atividades programadas para o dia selecionado.";
   }
 }
 
-const form = document.getElementById("notasForm");
-const resultDiv = document.getElementById("resultado");
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("notasForm");
+  const resultDiv = document.getElementById("resultado");
+  const modalFooter = document.querySelector(".modal-footer");
+  const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
 
-if (form) {
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    // Obtém de forma dinâmica as disciplinas e notas
-    let disciplinas = [];
-    let notas = [];
+      let disciplinas = [];
+      let notas = [];
+      let preenchidoCorretamente = true;
 
-    for (let i = 1; i <= 5; i++) {
-      let disciplinaNome = document.getElementById(
-        `disciplina${i}-label`
-      ).textContent;
-      let nota = parseFloat(document.getElementById(`disciplina${i}`).value);
+      for (let i = 1; i <= 5; i++) {
+        let disciplinaNome = document.getElementById(
+          `disciplina${i}-label`
+        ).textContent;
+        let notaInput = document.getElementById(`disciplina${i}`);
+        let nota = parseFloat(notaInput.value);
 
-      disciplinas.push(disciplinaNome);
-      notas.push(nota);
-    }
+        if (isNaN(nota) || notaInput.value.trim() === "") {
+          preenchidoCorretamente = false;
+          break;
+        }
 
-    // Calcula a média
-    const media = (
-      notas.reduce((acc, nota) => acc + nota, 0) / notas.length
-    ).toFixed(2);
+        disciplinas.push(disciplinaNome);
+        notas.push(nota);
+      }
 
-    // Exibe o resultado
-    resultDiv.innerHTML = `<p><strong>Média:</strong> ${media}</p>`;
+      if (!preenchidoCorretamente) {
+        resultDiv.innerHTML = `<p class="text-danger"><strong>Erro:</strong> Preencha todas as notas antes de calcular a média!</p>`;
+        return;
+      }
 
-    // Cria o botão "Salvar Notas e Média"
-    const saveButton = document.createElement("button");
-    saveButton.textContent = "Salvar Notas e Média";
-    saveButton.classList.add("btn", "btn-success", "mt-2");
-    saveButton.addEventListener("click", function () {
-      saveToFile(disciplinas, notas, media);
+      // Calcula a média
+      const media = (
+        notas.reduce((acc, nota) => acc + nota, 0) / notas.length
+      ).toFixed(2);
+
+      // Exibe o resultado no modal
+      resultDiv.innerHTML = `<p class="row justify-content-center"><strong class="row justify-content-center">Média:</strong> ${media}</p>`;
+
+      // Remover qualquer botão de salvar existente antes de adicionar um novo
+      document.getElementById("saveButton")?.remove();
+
+      // Criar o botão "Salvar Notas e Média"
+      const saveButton = document.createElement("button");
+      saveButton.textContent = "Salvar Notas e Média";
+      saveButton.classList.add("btn", "btn-success");
+      saveButton.id = "saveButton";
+      saveButton.addEventListener("click", function () {
+        saveToFile(disciplinas, notas, media);
+      });
+
+      // Adiciona o botão ao modal-footer
+      modalFooter.appendChild(saveButton);
+
+      // Abre o modal
+      modal.show();
     });
-
-    // Adiciona o botão ao resultado
-    resultDiv.appendChild(saveButton);
-  });
-}
+  }
+});
 
 // Função para obter a data e hora atual no formato D-M-A H:M:S
 function getFormattedDateTime() {
