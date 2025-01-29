@@ -46,64 +46,90 @@
     <main>
       <div class="container mt-5">
         <h1 class="text-center">Calculadora de Notas</h1>
+
+        <!-- Dropdown para selecionar o ano -->
+        <div class="mb-3">
+          <label for="ano" class="form-label">Escolha o Ano:</label>
+          <select id="ano" class="form-select">
+            <option value="1">1º Ano</option>
+            <option value="2">2º Ano</option>
+            <option value="3">3º Ano</option>
+          </select>
+        </div>
+
+        <!-- Dropdown para selecionar o semestre -->
+        <div class="mb-4">
+          <label for="semestre" class="form-label">Escolha o Semestre:</label>
+          <select id="semestre" class="form-select">
+            <option value="1">1º Semestre</option>
+            <option value="2">2º Semestre</option>
+          </select>
+        </div>
+
         <form id="notasForm">
           <div class="mb-3">
-            <label for="matematica" class="form-label">Matemática</label>
+            <label class="form-label" id="disciplina1-label">Matemática</label>
             <input
               type="number"
-              id="matematica"
+              id="disciplina1"
               class="form-control"
-              placeholder="Nota de Matemática"
+              placeholder="Nota"
               min="0"
               max="20"
               required
             />
           </div>
           <div class="mb-3">
-            <label for="algoritmia" class="form-label">Algoritmia</label>
+            <label class="form-label" id="disciplina2-label"
+              >Algoritmia e Estrutura de Dados</label
+            >
             <input
               type="number"
-              id="algoritmia"
+              id="disciplina2"
               class="form-control"
-              placeholder="Nota de Algoritmia"
+              placeholder="Nota"
               min="0"
               max="20"
               required
             />
           </div>
           <div class="mb-3">
-            <label for="design" class="form-label">Fundamentos de Design</label>
+            <label class="form-label" id="disciplina3-label"
+              >Fundamentos de Design</label
+            >
             <input
               type="number"
-              id="design"
+              id="disciplina3"
               class="form-control"
-              placeholder="Nota de Fundamentos de Design"
+              placeholder="Nota"
               min="0"
               max="20"
               required
             />
           </div>
           <div class="mb-3">
-            <label for="web" class="form-label">Tecnologias Web</label>
+            <label class="form-label" id="disciplina4-label"
+              >Tecnologias Web</label
+            >
             <input
               type="number"
-              id="web"
+              id="disciplina4"
               class="form-control"
-              placeholder="Nota de Tecnologias Web"
+              placeholder="Nota"
               min="0"
               max="20"
               required
             />
           </div>
           <div class="mb-3">
-            <label for="sistemas" class="form-label"
+            <label class="form-label" id="disciplina5-label"
               >Sistemas Computacionais</label
             >
             <input
               type="number"
-              id="sistemas"
+              id="disciplina5"
               class="form-control"
-              placeholder="Nota de Sistemas Computacionais"
+              placeholder="Nota"
               min="0"
               max="20"
               required
