@@ -1,3 +1,11 @@
+function arrayRange(start, end, step) {
+  let range = [];
+  for (let i = start; i <= end; i += step) {
+    range.push(i);
+  }
+  return range;
+}
+
 function showTab(tabId) {
   let tabs = document.querySelectorAll(".tab-content");
   tabs.forEach(function (tab) {
@@ -17,10 +25,16 @@ function sendAlert(day) {
   // Abre o modal
   modal.show();
 
-  // Mostra a alertaS
-  //alert("Dia: " + day + "\n" + schedule);
+  let range = arrayRange(1, 31, 1);
+
+  document.querySelectorAll(".modal-title").forEach((element) => {
+    element.innerHTML = range.includes(day)
+      ? "Dia: " + day + " de Janeiro"
+      : "Dia: " + day;
+  });
+
   document.querySelectorAll(".modal-body").forEach((element) => {
-    element.innerHTML = "Dia: " + day + "<br>" + schedule
+    element.innerHTML = schedule;
   });
 }
 
@@ -28,31 +42,31 @@ function getMessage(day) {
   // Definir horário para cada dia
   switch (day) {
     case "Segunda-Feira": // Segunda-feira
-      return "<br>Aulas:<br>11:30 - 13:00: Matemática I<br>14:00 - 16:00: Algoritmia e Estrutura de Dados<br>16:00 - 18:00: Tecnologias Web";
+      return "Aulas:<br>11:30 - 13:00: Matemática I<br>14:00 - 16:00: Algoritmia e Estrutura de Dados<br>16:00 - 18:00: Tecnologias Web";
     case "Terça-Feira": // Terça-feira
-      return "<br>Aulas:<br>14:00 - 15:30: Matemática I<br>17:00 - 19:00: Fundamentos de Design";
+      return ">Aulas:<br>14:00 - 15:30: Matemática I<br>17:00 - 19:00: Fundamentos de Design";
     case "Quarta-Feira": // Quarta-feira
-      return "<br>Aulas:<br>9:00 - 11:00: Tecnologias Web<br>11:00 - 13:00: Fundamentos de Design";
+      return "Aulas:<br>9:00 - 11:00: Tecnologias Web<br>11:00 - 13:00: Fundamentos de Design";
     case "Quinta-Feira": // Quinta-feira
-      return "<br>Aulas:<br>10:00 - 13:00: Algoritmia e Estrutura de Dados<br>14:00 - 17:00: Sistemas Computacionais";
+      return "Aulas:<br>10:00 - 13:00: Algoritmia e Estrutura de Dados<br>14:00 - 17:00: Sistemas Computacionais";
     case 1:
-      return "<br>Teste:<br>16:00 - 18:00: Tecnologias Web";
+      return "Teste:<br>16:00 - 18:00: Tecnologias Web";
     case 11:
-      return "<br>Teste:<br>14:00 - 17:00: Sistemas Computacionais";
+      return "Teste:<br>14:00 - 17:00: Sistemas Computacionais";
     case 15:
-      return "<br>Atividade de Progresso:<br>14:00 - 16:00: Algoritmia e Estrutura de Dados";
+      return "Atividade de Progresso:<br>14:00 - 16:00: Algoritmia e Estrutura de Dados";
     case 17:
-      return "<br>Apresentação: 11:00 - 13:00: Fundamentos de Design";
+      return "Apresentação: 11:00 - 13:00: Fundamentos de Design";
     case 22:
-      return "<br>Teste:<br>10:00 - 12:30: Matemática I";
+      return "Teste:<br>10:00 - 12:30: Matemática I";
     case 26:
-      return "<br>Apresentação:<br>13:30 - 17:00: Algoritmia e Estrutura de Dados";
+      return "Apresentação:<br>13:30 - 17:00: Algoritmia e Estrutura de Dados";
     case 29:
-      return "<br>Entrega de Projeto:<br>10:00: Tecnologias Web";
+      return "Entrega de Projeto:<br>10:00: Tecnologias Web";
     case 31:
-      return "<br>Apresentação:<br>11:00 - 13:00: Sistemas Computacionais";
+      return "Apresentação:<br>11:00 - 13:00: Sistemas Computacionais";
     default:
-      return "<br>Dia Inválido! Não há atividades programadas para o dia selecionado.";
+      return "Dia Inválido! Não há atividades programadas para o dia selecionado.";
   }
 }
 
