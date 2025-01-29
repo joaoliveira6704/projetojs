@@ -33,9 +33,6 @@ body {
 .mapa {
   width: 100%;
   height: 400px;
-  background: url("https://maps.googleapis.com/maps/api/staticmap?center=41.3548,-8.7437&zoom=15&size=1200x400&markers=color:red%7Clabel:C%7C41.3548,-8.7437&key=YOUR_API_KEY")
-    no-repeat center;
-  background-size: cover;
 }
 
 /* Formulário */
@@ -113,10 +110,13 @@ button:hover {
   background-color: #000000;
 }
 
-/* Estilo para o rodapé */
 footer {
-  background: rgb(0, 0, 0); /* Fundo semitransparente */
   text-align: center;
+  padding: 10px;
+  background: rgb(0, 0, 0);
+  margin-top: 30px;
+  width: 100%;
   color: #fff;
-  padding: 2em;
+  position: relative;
+  bottom: 0%;
 }

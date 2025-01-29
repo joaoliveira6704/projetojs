@@ -1,3 +1,13 @@
+function showTab(tabId) {
+  let tabs = document.querySelectorAll(".tab-content");
+  tabs.forEach(function (tab) {
+    tab.style.display = "none";
+  });
+
+  let activeTab = document.getElementById(tabId);
+  activeTab.style.display = "block";
+}
+
 function sendAlert(day) {
   // Get the class schedule for the day
   let schedule = getMessage(day);

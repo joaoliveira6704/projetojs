@@ -22,7 +22,7 @@ body {
   padding: 1rem; /* Adiciona espaço interno */
 }
 
-.retangulo span {
+.retangulo h1 {
   font-size: 5rem; /* Tamanho do texto */
   font-weight: bold; /* Texto em negrito */
   color: #333; /* Cor do texto */
@@ -37,21 +37,19 @@ body {
 .cursos {
   background-color: #ffffff; /* Fundo branco */
   color: #333333; /* Cor do texto */
-  padding: 10rem 10rem; /* Espaçamento interno */
+  padding: 8rem 8rem; /* Espaçamento interno */
   text-align: center; /* Centraliza o texto */
 }
 
-.cursos h1 {
+.cursos h2 {
   font-size: 3rem; /* Tamanho do título */
-  margin-bottom: 2rem; /* Espaço abaixo do título */
-  color: #000000; /* Cor do título */
+  margin-bottom: 3rem; /* Espaço abaixo do título */
 }
 
 .cursos .conteudo {
-  max-width: 800px; /* Limita a largura do texto */
   margin: 0 auto; /* Centraliza o texto horizontalmente */
   text-align: left; /* Alinha o texto à esquerda */
-  line-height: 1.6; /* Espaçamento entre linhas */
+  line-height: 2; /* Espaçamento entre linhas */
 }
 
 .cursos p {
@@ -64,17 +62,50 @@ main {
   padding: 2rem;
 }
 
-/* Estilo para o rodapé */
 footer {
-  background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
   text-align: center;
+  padding: 10px;
+  background: rgb(0, 0, 0);
+  margin-top: 30px;
+  width: 100%;
   color: #fff;
-  padding: 1rem 0;
+  position: relative;
+  bottom: 0%;
 }
 
 @media only screen and (max-width: 800px) {
   /* Estilo para a seção com fundo branco */
   .cursos {
     padding: 5rem 5rem; /* Espaçamento interno */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .retangulo h1 {
+    font-size: 4rem; /* Tamanho do texto */
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* Estilo para a seção com fundo branco */
+  .cursos h2 {
+    font-size: 2.5rem;
+  }
+  .cursos {
+    padding: 3rem 3rem; /* Espaçamento interno */
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .retangulo h1 {
+    font-size: 3rem; /* Tamanho do texto */
+    transition: all 0.5s ease-in-out;
+  }
+  /* Estilo para a seção com fundo branco */
+  .cursos h2 {
+    font-size: 1.5rem;
+  }
+  .cursos {
+    padding: 3rem 3rem; /* Espaçamento interno */
+    font-size: 13px;
   }
 }
