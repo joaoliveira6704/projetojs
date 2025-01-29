@@ -1,8 +1,0 @@
-Notas das Disciplinas (29-01-2025 21:10:06):
-- Matemática I: 1
-- Algoritmia e Estruturas de Dados: 1
-- Fundamentos de Design: 1
-- Tecnologias Web: 1
-- Sistemas Computacionais: 1
-
-Média: 1.00
